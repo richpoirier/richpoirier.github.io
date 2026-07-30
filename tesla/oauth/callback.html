@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Tesla authorization returned</title>
+  <style>
+    :root { color-scheme: light dark; font-family: system-ui, sans-serif; }
+    body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #111; color: #eee; }
+    main { width: min(34rem, calc(100% - 2rem)); }
+    button { font: inherit; padding: .7rem 1rem; border-radius: .5rem; border: 0; cursor: pointer; }
+    p { line-height: 1.5; }
+    #status { color: #aaa; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Tesla authorization returned</h1>
+    <p>Copy this callback URL, return to Terminal, and paste it at the Sage Energy prompt.</p>
+    <button id="copy" type="button">Copy callback URL</button>
+    <p id="status" role="status"></p>
+  </main>
+  <script>
+    const button = document.querySelector('#copy');
+    const status = document.querySelector('#status');
+    button.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(window.location.href);
+        status.textContent = 'Copied. You can close this tab.';
+      } catch (_) {
+        status.textContent = 'Copy the full URL from the browser address bar.';
+      }
+    });
+  </script>
+</body>
+</html>
