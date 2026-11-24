@@ -1,0 +1,7 @@
+{
+  "client_id": "https://richpoirier.github.io/sage-poppy/agent.json",
+  "client_name": "Sage",
+  "jwks_uri": "https://richpoirier.github.io/sage-poppy/jwks.json",
+  "redirect_uris": [],
+  "token_endpoint_auth_method": "private_key_jwt"
+}
